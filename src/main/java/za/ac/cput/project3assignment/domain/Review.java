@@ -1,12 +1,12 @@
-/*
-Imaan Achmat
-230458971
-*/
-
 package za.ac.cput.project3assignment.domain;
 
 import jakarta.persistence.*;
 import java.util.Date;
+
+/*
+Imaan Achmat
+230458971
+*/
 
 @Entity
 @Table(name = "reviews")
