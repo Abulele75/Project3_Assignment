@@ -6,12 +6,6 @@ import za.ac.cput.project3assignment.domain.User;
 
 import java.util.Date;
 
-/* Abulele Ntwanambi
-218276400
-Order domain class
-12/08/2026
- */
-
 @Entity
 @Table(name = "orders")
 public  class Order {
@@ -62,7 +56,7 @@ public  class Order {
                 ", user=" + user +
                 '}';
     }
-    public static class Builder {
+    protected static class Builder {
         private String orderId;
         private Date orderDate;
         private double totalAmount;
