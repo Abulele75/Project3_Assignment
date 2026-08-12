@@ -3,6 +3,12 @@ package za.ac.cput.project3assignment.domain;
 import jakarta.persistence.*;
 import za.ac.cput.project3assignment.domain.User;
 
+/* Abulele Ntwanambi
+218276400
+Cart domain class
+9/08/2026
+ */
+
 @Entity
 @Table(name = "cart")
 
