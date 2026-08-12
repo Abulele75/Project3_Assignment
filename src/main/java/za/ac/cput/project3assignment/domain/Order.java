@@ -1,82 +1,67 @@
 package za.ac.cput.project3assignment.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import za.ac.cput.project3assignment.domain.User;
+
 import java.util.Date;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public  class Order {
 
     @Id
     private String orderId;
-
     private Date orderDate;
+    private double totalAmount;
     private String status;
-    private String deliveryAddress;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(mappedBy = "order")
-    private Payment payment;
 
     protected Order() {
     }
 
     public String getOrderId() {
-        return orderId;
-    }
+        return orderId;}
 
     public Date getOrderDate() {
-        return orderDate;
-    }
+        return orderDate;}
+
+    public double getTotalAmount() {
+        return totalAmount;}
 
     public String getStatus() {
-        return status;
-    }
-
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
+        return status;}
 
     public User getUser() {
-        return user;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
+        return user;}
 
     protected Order(Builder builder) {
         this.orderId = builder.orderId;
         this.orderDate = builder.orderDate;
+        this.totalAmount = builder.totalAmount;
         this.status = builder.status;
-        this.deliveryAddress = builder.deliveryAddress;
         this.user = builder.user;
-        this.payment = builder.payment;
     }
-
-    @Override
     public String toString() {
         return "Order{" +
                 "orderId='" + orderId + '\'' +
                 ", orderDate=" + orderDate +
+                ", totalAmount=" + totalAmount +
                 ", status='" + status + '\'' +
-                ", deliveryAddress='" + deliveryAddress + '\'' +
                 ", user=" + user +
-                ", payment=" + payment +
                 '}';
     }
-
-    public static class Builder {
-
+    protected static class Builder {
         private String orderId;
         private Date orderDate;
+        private double totalAmount;
         private String status;
-        private String deliveryAddress;
         private User user;
-        private Payment payment;
 
         public Builder setOrderId(String orderId) {
             this.orderId = orderId;
@@ -88,13 +73,13 @@ public class Order {
             return this;
         }
 
-        public Builder setStatus(String status) {
-            this.status = status;
+        public Builder setTotalAmount(double totalAmount) {
+            this.totalAmount = totalAmount;
             return this;
         }
 
-        public Builder setDeliveryAddress(String deliveryAddress) {
-            this.deliveryAddress = deliveryAddress;
+        public Builder setStatus(String status) {
+            this.status = status;
             return this;
         }
 
@@ -103,13 +88,8 @@ public class Order {
             return this;
         }
 
-        public Builder setPayment(Payment payment) {
-            this.payment = payment;
-            return this;
-        }
-
         public Order build() {
-            return new Order(this);
+            return new Order(this) {};
         }
     }
 }
