@@ -1,6 +1,6 @@
 package za.ac.cput.project3assignment.factory;
 
-/* Stephanie Lewu
+/* Stephanie Tola Oluwafemi Lewu
 230211216
 Payment Factory Class
 12/08/2026
@@ -19,7 +19,7 @@ public class PaymentFactory {
                 .setPaymentStatus(paymentStatus)
                 .setPaymentDate(paymentDate)
                 .build();
-        
+
     }
 
 
