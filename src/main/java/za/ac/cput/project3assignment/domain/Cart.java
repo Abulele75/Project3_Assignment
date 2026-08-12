@@ -1,12 +1,11 @@
 package za.ac.cput.project3assignment.domain;
 
 import jakarta.persistence.*;
-import za.ac.cput.project3assignment.domain.User;
 
 @Entity
 @Table(name = "cart")
-
 public class Cart {
+
     @Id
     private String cartId;
 
@@ -18,16 +17,19 @@ public class Cart {
     }
 
     public String getCartId() {
-        return cartId;}
+        return cartId;
+    }
 
     public User getUser() {
-        return user;}
+        return user;
+    }
 
     protected Cart(Builder builder) {
         this.cartId = builder.cartId;
         this.user = builder.user;
     }
 
+    @Override
     public String toString() {
         return "Cart{" +
                 "cartId='" + cartId + '\'' +
@@ -36,6 +38,7 @@ public class Cart {
     }
 
     public static class Builder {
+
         private String cartId;
         private User user;
 
@@ -49,9 +52,8 @@ public class Cart {
             return this;
         }
 
-        public Cart build(){
-            return new Cart(this) {
-            };
+        public Cart build() {
+            return new Cart(this);
         }
     }
 }
