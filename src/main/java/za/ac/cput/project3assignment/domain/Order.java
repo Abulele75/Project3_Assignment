@@ -56,7 +56,7 @@ public  class Order {
                 ", user=" + user +
                 '}';
     }
-    public static class Builder {
+    protected static class Builder {
         private String orderId;
         private Date orderDate;
         private double totalAmount;
