@@ -27,7 +27,7 @@ public class OrderController {
         return orderService.create(order);
     }
     @GetMapping("/{orderId}")
-    public Order getOrderById(@PathVariable String orderId) {
+    public Order read(@PathVariable String orderId) {
         return orderService.read(orderId);
     }
     @GetMapping
